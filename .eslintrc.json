@@ -1,0 +1,113 @@
+{
+  "root": true,
+  "ignorePatterns": ["**/*"],
+  "plugins": ["eslint-plugin-unicorn", "@nrwl/nx"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "@nrwl/nx/enforce-module-boundaries": [
+          "error",
+          {
+            "enforceBuildableLibDependency": true,
+            "allow": [],
+            "depConstraints": [{ "sourceTag": "*", "onlyDependOnLibsWithTags": ["*"] }]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": [
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:import/typescript",
+        "plugin:unicorn/recommended",
+        "plugin:jest/all",
+        "plugin:@nrwl/nx/typescript"
+      ],
+      "parserOptions": { "project": "./tsconfig.*?.json" },
+      "rules": {
+        "no-console": ["error", { "allow": ["warn", "error"] }],
+        "import/first": "error",
+        "import/newline-after-import": "error",
+        "import/no-duplicates": "error",
+        "import/order": [
+          "error",
+          {
+            "newlines-between": "never",
+            "alphabetize": { "order": "asc", "caseInsensitive": true }
+          }
+        ],
+        "@typescript-eslint/no-inferrable-types": "off",
+        "@typescript-eslint/typedef": [
+          "error",
+          {
+            "arrayDestructuring": true,
+            "arrowParamete": true,
+            "memberVariableDeclaration": true,
+            "objectDestructuring": true,
+            "parameter": true,
+            "propertyDeclaration": true,
+            "variableDeclaration": true,
+            "variableDeclarationIgnoreFunction": true
+          }
+        ],
+        "@typescript-eslint/no-explicit-any": "error",
+        "@typescript-eslint/explicit-function-return-type": [
+          "error",
+          {
+            "allowExpressions": false,
+            "allowTypedFunctionExpressions": false,
+            "allowHigherOrderFunctions": false,
+            "allowConciseArrowFunctionExpressionsStartingWithVoid": false
+          }
+        ],
+        "@typescript-eslint/explicit-member-accessibility": ["error", { "accessibility": "no-public" }],
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "selector": "interface",
+            "format": ["PascalCase"],
+            "custom": {
+              "regex": "Interface|Dto|Params$",
+              "match": true
+            }
+          },
+          {
+            "selector": "typeAlias",
+            "format": ["PascalCase"],
+            "custom": {
+              "regex": "Type$",
+              "match": true
+            }
+          },
+          {
+            "selector": "enum",
+            "format": ["PascalCase"],
+            "custom": {
+              "regex": "Enum$",
+              "match": true
+            }
+          }
+        ],
+        "@typescript-eslint/member-ordering": "error",
+        "@typescript-eslint/member-delimiter-style": "error",
+        "@typescript-eslint/ban-ts-comment": [
+          "error",
+          {
+            "ts-expect-error": "allow-with-description",
+            "ts-ignore": "allow-with-description",
+            "ts-nocheck": "allow-with-description",
+            "ts-check": "allow-with-description",
+            "minimumDescriptionLength": 3
+          }
+        ],
+        "unicorn/prevent-abbreviations": "off",
+        "jest/no-hooks": "off",
+        "jest/lowercase-name": "off"
+      }
+    },
+    { "files": ["*.js", "*.jsx"], "extends": ["plugin:@nrwl/nx/javascript"], "rules": {} }
+  ]
+}

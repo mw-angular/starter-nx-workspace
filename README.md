@@ -1,3 +1,10 @@
+# Notes
+
+```
+// generate angular application
+nx g @nrwl/angular:application website/website --linter=eslint --prefix=app --strict=true
+```
+
 # StarterNxWorkspace
 
 This project was generated using [Nx](https://nx.dev).
