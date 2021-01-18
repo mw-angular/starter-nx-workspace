@@ -21,7 +21,9 @@
     "forceConsistentCasingInFileNames": true,
     "downlevelIteration": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@starter-nx-workspace/frontend/design-system": ["libs/frontend/design-system/src/index.ts"]
+    }
   },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,

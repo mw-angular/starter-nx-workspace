@@ -1,6 +1,9 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
+  "env": {
+    "node": true
+  },
   "plugins": ["eslint-plugin-unicorn", "@nrwl/nx"],
   "overrides": [
     {
@@ -104,6 +107,8 @@
           }
         ],
         "unicorn/prevent-abbreviations": "off",
+        "unicorn/no-array-reduce": "off",
+        "unicorn/no-null": "off",
         "jest/no-hooks": "off",
         "jest/lowercase-name": "off"
       }

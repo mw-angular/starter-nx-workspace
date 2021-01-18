@@ -120,6 +120,33 @@
           }
         }
       }
+    },
+    "frontend/design-system": {
+      "projectType": "library",
+      "root": "libs/frontend/design-system",
+      "sourceRoot": "libs/frontend/design-system/src",
+      "prefix": "ds",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/frontend/design-system/src/**/*.ts",
+              "libs/frontend/design-system/src/**/*.html"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/frontend/design-system"
+          ],
+          "options": {
+            "jestConfig": "libs/frontend/design-system/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "generators": {
@@ -129,7 +156,8 @@
       "strict": true
     },
     "@nrwl/angular:library": {
-      "unitTestRunner": "jest"
+      "unitTestRunner": "jest",
+      "strict": true
     },
     "@nrwl/angular:component": {
       "style": "scss"
