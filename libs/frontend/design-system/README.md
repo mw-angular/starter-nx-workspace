@@ -2,21 +2,21 @@
 
 ## Icons
 
-You can find icons in the [repository](https://heroicons.com/).
+You can find updates for icons in the [repository](https://heroicons.com/).
 
 ## Add to new project
 
 1. Follow instructions for [tailwind builder](https://github.com/mw-angular/toolbox/tree/main/libs/mw-angular/tailwindcss-builder#mw-angulartailwindcss-builder)
 
-2. Add assets in build and test targets in `angular.json`
+2. Add assets in build and test targets in `workspace.json`
 
 ```
 "assets": [
-  "apps/styleguide/src/favicon.ico",
-  "apps/styleguide/src/assets",
+  "apps/website/website/src/favicon.ico",
+  "apps/website/website/src/assets",
   {
     "glob": "**/*",
-    "input": "libs/design-system/src/assets",
+    "input": "libs/frontend/design-system/src/assets",
     "output": "design-system"
   }
 ],

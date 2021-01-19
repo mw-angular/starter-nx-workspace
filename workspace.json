@@ -18,15 +18,23 @@
             "aot": true,
             "assets": [
               "apps/website/website/src/favicon.ico",
-              "apps/website/website/src/assets"
+              "apps/website/website/src/assets",
+              {
+                "glob": "**/*",
+                "input": "libs/frontend/design-system/src/assets",
+                "output": "design-system"
+              }
             ],
             "styles": [
-              "apps/website/website/src/styles.scss"
+              "apps/website/website/src/styles/tailwind.dev.css"
             ],
             "scripts": []
           },
           "configurations": {
             "production": {
+              "styles": [
+                "apps/website/website/src/styles/tailwind.css"
+              ],
               "fileReplacements": [
                 {
                   "replace": "apps/website/website/src/environments/environment.ts",
@@ -64,6 +72,19 @@
             "production": {
               "browserTarget": "website/website:build:production"
             }
+          }
+        },
+        "tailwindcss": {
+          "builder": "@mw-angular/tailwindcss-builder:general",
+          "options": {
+            "themes": [
+              {
+                "configFile": "libs/frontend/design-system/src/styles/tailwind.config.js",
+                "cssFile": "libs/frontend/design-system/src/styles/tailwind.css",
+                "outputPath": "apps/website/website/src/styles",
+                "outputFileName": "tailwind"
+              }
+            ]
           }
         },
         "extract-i18n": {
