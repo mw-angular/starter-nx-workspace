@@ -32,29 +32,36 @@
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
+    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points",
+    "pre-commit": "./tools/hooks/pre-commit.sh",
+    "pre-push": "./tools/hooks/pre-push.sh"
+  },
+  "engines": {
+    "node": ">=14.15.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pre-commit",
+      "commit-msg": "node ./tools/hooks/commit-msg.js",
+      "pre-push": "npm run pre-push"
+    }
   },
   "dependencies": {
-    "@angular/animations": "^11.0.0",
-    "@angular/cdk": "^11.0.4",
-    "@angular/common": "^11.0.0",
-    "@angular/compiler": "^11.0.0",
-    "@angular/core": "^11.0.0",
-    "@angular/forms": "^11.0.0",
-    "@angular/platform-browser": "^11.0.0",
-    "@angular/platform-browser-dynamic": "^11.0.0",
-    "@angular/router": "^11.0.0",
-    "rxjs": "~6.5.5",
-    "tslib": "^2.0.0",
-    "zone.js": "^0.10.2"
-  },
-  "devDependencies": {
     "@angular-devkit/build-angular": "~0.1100.1",
     "@angular-eslint/eslint-plugin": "~1.0.0",
     "@angular-eslint/eslint-plugin-template": "~1.0.0",
     "@angular-eslint/template-parser": "~1.0.0",
+    "@angular/animations": "^11.0.0",
+    "@angular/cdk": "^11.0.4",
+    "@angular/common": "^11.0.0",
+    "@angular/compiler": "^11.0.0",
     "@angular/compiler-cli": "^11.0.0",
+    "@angular/core": "^11.0.0",
+    "@angular/forms": "^11.0.0",
     "@angular/language-service": "^11.0.0",
+    "@angular/platform-browser": "^11.0.0",
+    "@angular/platform-browser-dynamic": "^11.0.0",
+    "@angular/router": "^11.0.0",
     "@mw-angular/tailwindcss-builder": "^1.0.2",
     "@nrwl/angular": "^11.1.5",
     "@nrwl/cli": "11.1.5",
@@ -80,13 +87,18 @@
     "eslint-plugin-jsdoc": "^31.0.7",
     "eslint-plugin-prefer-arrow": "^1.2.2",
     "eslint-plugin-unicorn": "^26.0.1",
+    "husky": "^4.3.8",
     "jest": "26.2.2",
     "jest-preset-angular": "8.3.1",
+    "lint-staged": "^10.5.3",
     "postcss": "^8.2.4",
     "prettier": "2.2.1",
+    "rxjs": "~6.5.5",
     "ts-jest": "26.4.0",
     "ts-node": "~9.1.1",
+    "tslib": "^2.0.0",
     "typescript": "~4.0.3",
-    "webpack-bundle-analyzer": "^4.3.0"
+    "webpack-bundle-analyzer": "^4.3.0",
+    "zone.js": "^0.10.2"
   }
 }
