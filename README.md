@@ -1,6 +1,7 @@
 # Install
 
 - Replace in all places `starter-nx-workspace` with your monorepo name
+- Change in nx.json `defaultBase`
 
 # Notes
 

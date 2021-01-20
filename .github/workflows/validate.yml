@@ -1,0 +1,60 @@
+name: Validate
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Cache Node.js modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Set Vars
+        id: set-vars
+        run: |
+          NX_BASE=${{ github.event.pull_request.base.sha }}
+          NX_HEAD=${{ github.event.pull_request.head.sha }}
+          echo "::set-output name=NX_BASE::$( echo "$NX_BASE" )"
+          echo "::set-output name=NX_HEAD::$( echo "$NX_HEAD" )"
+
+      - name: Format
+        run: npm run format:check -- --base=${{ steps.set-vars.outputs.NX_BASE }} --head=${{ steps.set-vars.outputs.NX_HEAD }}
+
+      - name: Lint
+        run: npm run affected:lint -- --base=${{ steps.set-vars.outputs.NX_BASE }} --head=${{ steps.set-vars.outputs.NX_HEAD }}
+
+      - name: Test
+        run: npm run affected:test -- --base=${{ steps.set-vars.outputs.NX_BASE }} --head=${{ steps.set-vars.outputs.NX_HEAD }}
+
+      - name: E2E
+        run: npm run affected:e2e -- --base=${{ steps.set-vars.outputs.NX_BASE }} --head=${{ steps.set-vars.outputs.NX_HEAD }}
+
+      - name: Build
+        run: npm run affected:build -- --base=${{ steps.set-vars.outputs.NX_BASE }} --head=${{ steps.set-vars.outputs.NX_HEAD }}

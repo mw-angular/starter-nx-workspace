@@ -1,1 +1,5 @@
-export const getGreeting = () => cy.get('h1');
+import Chainable = Cypress.Chainable;
+
+export const getGreeting = (): Chainable<JQuery<HTMLElement>> => {
+  return cy.get('h1');
+};

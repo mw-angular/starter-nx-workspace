@@ -75,7 +75,7 @@
           }
         },
         "tailwindcss": {
-          "builder": "@mw-angular/tailwindcss-builder:general",
+          "executor": "@mw-angular/tailwindcss-builder:general",
           "options": {
             "themes": [
               {

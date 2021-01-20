@@ -1,6 +1,6 @@
 {
   "npmScope": "starter-nx-workspace",
-  "affected": { "defaultBase": "development" },
+  "affected": { "defaultBase": "main" },
   "implicitDependencies": {
     "workspace.json": "*",
     "package.json": { "dependencies": "*", "devDependencies": "*" },
