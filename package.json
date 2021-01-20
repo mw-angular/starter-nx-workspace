@@ -11,7 +11,7 @@
     "tailwindcss:website": "nx run website/website:tailwindcss",
     "lint:website": "nx workspace-lint && nx lint website/website --fix && nx lint website/website-e2e --fix",
     "test:website": "nx test website/website",
-    "e2e:website": "nx e2e website/website-e2e",
+    "e2e:website": "nx e2e website/website-e2e --prod",
     "analyze:website": "webpack-bundle-analyzer dist/apps/website/website/stats.json",
     "------------------ lib: frontend/design-system ------------------": "",
     "lint:design-system": "nx workspace-lint && nx lint frontend/design-system --fix",
