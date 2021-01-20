@@ -5,7 +5,5 @@ module.exports = {
       `npx nx format:write --files ${filenames.join(',')}`,
     ];
   },
-  "{apps,libs}/**/*.scss": [
-    "stylelint --max-warnings 0 --fix"
-  ]
+  '{apps,libs}/**/*.scss': ['stylelint --max-warnings 0 --fix'],
 };

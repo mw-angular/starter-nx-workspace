@@ -31,6 +31,7 @@
       ],
       "parserOptions": { "project": "./tsconfig.*?.json" },
       "rules": {
+        "quote-props": "off",
         "no-console": ["error", { "allow": ["warn", "error"] }],
         "import/first": "error",
         "import/newline-after-import": "error",
@@ -113,6 +114,12 @@
         "jest/lowercase-name": "off"
       }
     },
-    { "files": ["*.js", "*.jsx"], "extends": ["plugin:@nrwl/nx/javascript"], "rules": {} }
+    {
+      "files": ["*.js", "*.jsx"],
+      "extends": ["plugin:@nrwl/nx/javascript"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    }
   ]
 }

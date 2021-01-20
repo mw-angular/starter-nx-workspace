@@ -9,6 +9,7 @@
       "rules": {
         "@angular-eslint/directive-selector": ["error", { "type": "attribute", "prefix": "ds", "style": "camelCase" }],
         "@angular-eslint/component-selector": ["error", { "type": "element", "prefix": "ds", "style": "kebab-case" }],
+        "quote-props": "off",
         "@typescript-eslint/no-inferrable-types": "off",
         "@typescript-eslint/explicit-member-accessibility": ["error", { "accessibility": "no-public" }]
       }

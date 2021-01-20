@@ -100,7 +100,7 @@ describe('prepareClassListHelper', (): void => {
       const svgClass: DsIconSvgClassType = {
         'class1 class2': false,
         'class3 class4 class5': true,
-        class6: true,
+        'class6': true,
         ' class7   class8  ': true,
       };
       const result: string[] = prepareClassListHelper(svgClass);

@@ -1,10 +1,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-  purge: [
-    `libs/frontend/design-system/src/**/*.html`,
-    `libs/frontend/design-system/src/**/*.ts`
-  ],
+  purge: [`libs/frontend/design-system/src/**/*.html`, `libs/frontend/design-system/src/**/*.ts`],
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
@@ -16,7 +13,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [
-    require('@tailwindcss/forms'),
-  ],
-}
+  plugins: [require('@tailwindcss/forms')],
+};
