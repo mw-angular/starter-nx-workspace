@@ -2,13 +2,13 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Breakpoints } from '../entities/breakpoints.enum';
+import { BreakpointsEnum } from '../entities/breakpoints.enum';
 
 @Injectable()
 export class BreakpointsService {
   constructor(private breakpointObserver: BreakpointObserver) {}
 
-  matches(breakpoint: Breakpoints): Observable<boolean> {
+  matches(breakpoint: BreakpointsEnum): Observable<boolean> {
     return this.breakpointObserver.observe([breakpoint]).pipe(map(({ matches }: BreakpointState): boolean => matches));
   }
 }

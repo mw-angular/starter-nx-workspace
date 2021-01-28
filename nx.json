@@ -1,9 +1,14 @@
 {
   "npmScope": "starter-nx-workspace",
-  "affected": { "defaultBase": "main" },
+  "affected": {
+    "defaultBase": "main"
+  },
   "implicitDependencies": {
     "workspace.json": "*",
-    "package.json": { "dependencies": "*", "devDependencies": "*" },
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
     "tsconfig.base.json": "*",
     ".eslintrc.json": "*",
     "nx.json": "*"
@@ -11,7 +16,9 @@
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": { "cacheableOperations": ["build", "lint", "test", "e2e"] }
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
     }
   },
   "projects": {
@@ -21,6 +28,13 @@
     "website/website-e2e": {
       "tags": ["app:website/website-e2e"],
       "implicitDependencies": ["website/website"]
+    },
+    "styleguide/styleguide": {
+      "tags": ["app:styleguide/styleguide"]
+    },
+    "styleguide/styleguide-e2e": {
+      "tags": ["app:styleguide/styleguide-e2e"],
+      "implicitDependencies": ["styleguide/styleguide"]
     },
     "frontend/design-system": {
       "tags": ["lib:frontend/design-system"]

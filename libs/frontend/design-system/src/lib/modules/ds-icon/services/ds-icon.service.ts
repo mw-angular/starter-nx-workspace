@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, publishLast, refCount } from 'rxjs/operators';
-import { DsIconCategory } from '../entities/ds-icon-category.type';
+import { DsIconCategoryType } from '../entities/ds-icon-category.type';
 import { DsIconNameType } from '../entities/ds-icon-name.type';
 
 @Injectable({
@@ -13,7 +13,7 @@ export class DsIconService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getIcon(category: DsIconCategory, name: DsIconNameType): Observable<string | null> {
+  getIcon(category: DsIconCategoryType, name: DsIconNameType): Observable<string | null> {
     const url: string = `/design-system/icons/${category}/${name}.svg`;
 
     if (!this.cachedIcons[url]) {
