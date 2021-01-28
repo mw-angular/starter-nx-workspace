@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
-  selector: 'ds-button',
+  selector: 'app-colors-page',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './ds-button.component.html',
+  templateUrl: './colors-page.component.html',
 })
-export class DsButtonComponent {}
+export class ColorsPageComponent {}

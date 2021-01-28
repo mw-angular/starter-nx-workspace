@@ -33,6 +33,7 @@
       "rules": {
         "quote-props": "off",
         "no-console": ["error", { "allow": ["warn", "error"] }],
+        "import/no-unresolved": "off",
         "import/first": "error",
         "import/newline-after-import": "error",
         "import/no-duplicates": "error",

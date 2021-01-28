@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ElementRef, Input, OnDestroy, Renderer2 } from '@angular/core';
 import { BehaviorSubject, combineLatest, Observable, ReplaySubject, Subject } from 'rxjs';
 import { debounceTime, filter, switchMap, takeUntil } from 'rxjs/operators';
-import { DsIconCategory } from '../../entities/ds-icon-category.type';
+import { DsIconCategoryType } from '../../entities/ds-icon-category.type';
 import { DsIconNameType } from '../../entities/ds-icon-name.type';
 import { DsIconSvgClassType } from '../../entities/ds-icon-svg-class.type';
 import { prepareClassListHelper } from '../../helpers/prepare-class-list.helper';
@@ -13,7 +13,7 @@ import { DsIconService } from '../../services/ds-icon.service';
   template: '',
 })
 export class DsIconComponent implements OnDestroy {
-  @Input() set category(value: DsIconCategory | null) {
+  @Input() set category(value: DsIconCategoryType | null) {
     if (value) {
       this.category$$.next(value);
     }
@@ -31,7 +31,7 @@ export class DsIconComponent implements OnDestroy {
     }
   }
 
-  private category$$: ReplaySubject<DsIconCategory> = new ReplaySubject(1);
+  private category$$: ReplaySubject<DsIconCategoryType> = new ReplaySubject(1);
   private name$$: ReplaySubject<DsIconNameType> = new ReplaySubject(1);
   private svgClass$$: BehaviorSubject<DsIconSvgClassType> = new BehaviorSubject<DsIconSvgClassType>('');
   private destroy$$: Subject<void> = new Subject<void>();
@@ -49,7 +49,7 @@ export class DsIconComponent implements OnDestroy {
   private render(): void {
     const iconString$: Observable<string> = combineLatest([this.category$$, this.name$$]).pipe(
       switchMap(
-        ([category, name]: [DsIconCategory, DsIconNameType]): Observable<string | null> => {
+        ([category, name]: [DsIconCategoryType, DsIconNameType]): Observable<string | null> => {
           return this.dsIconService.getIcon(category, name);
         },
       ),

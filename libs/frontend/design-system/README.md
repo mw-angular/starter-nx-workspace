@@ -27,3 +27,13 @@ You can find updates for icons in the [repository](https://heroicons.com/).
 ```
 <link rel="stylesheet" href="design-system/fonts/fonts.css">
 ```
+
+4. Set zero budgets for css in `workspace.json`
+
+```
+{
+  "type": "anyComponentStyle",
+  "maximumWarning": "2kb",
+  "maximumError": "0kb"
+}
+```
