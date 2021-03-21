@@ -1,20 +1,22 @@
+import { PlatformLocation } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, publishLast, refCount } from 'rxjs/operators';
-import { DsIconCategoryType } from '../entities/ds-icon-category.type';
-import { DsIconNameType } from '../entities/ds-icon-name.type';
+import { DsIconCategory } from '../entities/ds-icon-category';
+import { DsIconName } from '../entities/ds-icon-name';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DsIconService {
+  private baseHref: string = this.platformLocation.getBaseHrefFromDOM();
   private cachedIcons: Record<string, Observable<string | null>> = {};
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, private platformLocation: PlatformLocation) {}
 
-  getIcon(category: DsIconCategoryType, name: DsIconNameType): Observable<string | null> {
-    const url: string = `/design-system/icons/${category}/${name}.svg`;
+  getIcon(category: DsIconCategory, name: DsIconName): Observable<string | null> {
+    const url: string = `${this.baseHref}design-system/icons/${category}/${name}.svg`;
 
     if (!this.cachedIcons[url]) {
       this.cachedIcons[url] = this.fetchIcon(url);

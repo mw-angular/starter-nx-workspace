@@ -22,13 +22,6 @@
     }
   },
   "projects": {
-    "website/website": {
-      "tags": ["app:website/website"]
-    },
-    "website/website-e2e": {
-      "tags": ["app:website/website-e2e"],
-      "implicitDependencies": ["website/website"]
-    },
     "styleguide/styleguide": {
       "tags": ["app:styleguide/styleguide"]
     },

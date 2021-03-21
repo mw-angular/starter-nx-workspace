@@ -1,3 +1,5 @@
+/*! tailwindcss v2.0.4 | MIT License | https://tailwindcss.com */
+
 /*! modern-normalize v1.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 
 /*
@@ -411,15 +413,18 @@ textarea {
 }
 
 input::-moz-placeholder, textarea::-moz-placeholder {
+  opacity: 1;
   color: #a1a1aa;
 }
 
 input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  opacity: 1;
   color: #a1a1aa;
 }
 
 input::placeholder,
 textarea::placeholder {
+  opacity: 1;
   color: #a1a1aa;
 }
 
@@ -627,9 +632,9 @@ select {
   background-color: rgba(249, 250, 251, var(--tw-bg-opacity));
 }
 
-.bg-alpha-100 {
+.bg-alpha-200 {
   --tw-bg-opacity: 1;
-  background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
+  background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
 }
 
 .bg-alpha-600 {
@@ -1054,6 +1059,11 @@ select {
 
 .uppercase {
   text-transform: uppercase;
+}
+
+.antialiased {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .tracking-wide {

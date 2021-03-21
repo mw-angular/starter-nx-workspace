@@ -1,6 +1,6 @@
-import { DsIconSvgClassType } from '../entities/ds-icon-svg-class.type';
+import { DsIconSvgClass } from '../entities/ds-icon-svg-class';
 
-export function prepareClassListHelper(svgClass: DsIconSvgClassType): string[] {
+export function prepareClassListHelper(svgClass: DsIconSvgClass): string[] {
   let svgClassList: string[];
 
   if (Array.isArray(svgClass)) {

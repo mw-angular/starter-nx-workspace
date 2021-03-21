@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -7,7 +8,7 @@ import { appRoutes } from './app.routes';
 import { LayoutModule } from './modules/layout/layout.module';
 
 @NgModule({
-  imports: [BrowserModule, BrowserAnimationsModule, RouterModule.forRoot(appRoutes), LayoutModule],
+  imports: [BrowserModule, BrowserAnimationsModule, HttpClientModule, RouterModule.forRoot(appRoutes), LayoutModule],
   declarations: [AppContainerComponent],
   bootstrap: [AppContainerComponent],
 })

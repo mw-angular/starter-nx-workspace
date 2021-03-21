@@ -2,8 +2,8 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-  purge: [`libs/frontend/design-system/src/**/*.html`, `libs/frontend/design-system/src/**/*.ts`],
-  darkMode: false, // or 'media' or 'class'
+  purge: [`libs/frontend/**/*.html`, `libs/frontend/**/*.ts`],
+  darkMode: false,
   theme: {
     colors: {
       transparent: 'transparent',
@@ -19,7 +19,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      margin: ['responsive', 'last'],
+    },
   },
   plugins: [require('@tailwindcss/forms')],
 };

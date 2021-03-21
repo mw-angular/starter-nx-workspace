@@ -1,4 +1,4 @@
-export type DsIconNameType =
+export type DsIconName =
   | 'academic-cap'
   | 'adjustments'
   | 'annotation'

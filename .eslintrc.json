@@ -31,6 +31,7 @@
       ],
       "parserOptions": { "project": "./tsconfig.*?.json" },
       "rules": {
+        "max-len": "off",
         "quote-props": "off",
         "no-console": ["error", { "allow": ["warn", "error"] }],
         "import/no-unresolved": "off",
@@ -44,6 +45,7 @@
             "alphabetize": { "order": "asc", "caseInsensitive": true }
           }
         ],
+        "@typescript-eslint/no-unused-vars": "off",
         "@typescript-eslint/no-inferrable-types": "off",
         "@typescript-eslint/typedef": [
           "error",
@@ -69,33 +71,6 @@
           }
         ],
         "@typescript-eslint/explicit-member-accessibility": ["error", { "accessibility": "no-public" }],
-        "@typescript-eslint/naming-convention": [
-          "error",
-          {
-            "selector": "interface",
-            "format": ["PascalCase"],
-            "custom": {
-              "regex": "Interface|Dto|Params$",
-              "match": true
-            }
-          },
-          {
-            "selector": "typeAlias",
-            "format": ["PascalCase"],
-            "custom": {
-              "regex": "Type$",
-              "match": true
-            }
-          },
-          {
-            "selector": "enum",
-            "format": ["PascalCase"],
-            "custom": {
-              "regex": "Enum$",
-              "match": true
-            }
-          }
-        ],
         "@typescript-eslint/member-ordering": "error",
         "@typescript-eslint/member-delimiter-style": "error",
         "@typescript-eslint/ban-ts-comment": [
@@ -111,6 +86,7 @@
         "unicorn/prevent-abbreviations": "off",
         "unicorn/no-array-reduce": "off",
         "unicorn/no-null": "off",
+        "unicorn/no-useless-undefined": "off",
         "jest/no-hooks": "off",
         "jest/lowercase-name": "off"
       }

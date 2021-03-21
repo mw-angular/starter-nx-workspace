@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { DsIconCategoryType, DsIconNameType } from '@starter-nx-workspace/frontend/design-system';
+import { DsIconCategory, DsIconName } from '@starter-nx-workspace/frontend/design-system';
 import { TitleService } from '../../services/title.service';
 import { IconsPageItemInterface } from './entities/icons-page-item.interface';
 
@@ -8,16 +8,16 @@ import { IconsPageItemInterface } from './entities/icons-page-item.interface';
   template: ` <app-icons-page [items]="items"></app-icons-page> `,
 })
 export class IconsPageContainerComponent {
-  items: ReadonlyMap<DsIconCategoryType, IconsPageItemInterface[]>;
+  items: ReadonlyMap<DsIconCategory, IconsPageItemInterface[]>;
 
   constructor(private titleService: TitleService) {
     this.titleService.setTitle('Icons');
     this.items = this.getItems();
   }
 
-  private getItems(): ReadonlyMap<DsIconCategoryType, IconsPageItemInterface[]> {
-    const items: Map<DsIconCategoryType, IconsPageItemInterface[]> = new Map();
-    const icons: DsIconNameType[] = [
+  private getItems(): ReadonlyMap<DsIconCategory, IconsPageItemInterface[]> {
+    const items: Map<DsIconCategory, IconsPageItemInterface[]> = new Map();
+    const icons: DsIconName[] = [
       'academic-cap',
       'adjustments',
       'annotation',
@@ -246,11 +246,11 @@ export class IconsPageContainerComponent {
       'zoom-out',
     ];
 
-    (['outline', 'solid'] as DsIconCategoryType[]).forEach((category: DsIconCategoryType): void => {
+    (['outline', 'solid'] as DsIconCategory[]).forEach((category: DsIconCategory): void => {
       items.set(
         category,
         icons.map(
-          (icon: DsIconNameType): IconsPageItemInterface => ({
+          (icon: DsIconName): IconsPageItemInterface => ({
             name: icon,
             category,
             color: category === 'outline' ? 'bravo' : 'charlie',
