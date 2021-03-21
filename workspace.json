@@ -1,136 +1,6 @@
 {
   "version": 2,
   "projects": {
-    "website/website": {
-      "projectType": "application",
-      "root": "apps/website/website",
-      "sourceRoot": "apps/website/website/src",
-      "prefix": "app",
-      "targets": {
-        "build": {
-          "executor": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/apps/website/website",
-            "index": "apps/website/website/src/index.html",
-            "main": "apps/website/website/src/main.ts",
-            "polyfills": "apps/website/website/src/polyfills.ts",
-            "tsConfig": "apps/website/website/tsconfig.app.json",
-            "aot": true,
-            "assets": [
-              "apps/website/website/src/favicon.ico",
-              "apps/website/website/src/assets",
-              {
-                "glob": "**/*",
-                "input": "libs/frontend/design-system/src/assets",
-                "output": "design-system"
-              }
-            ],
-            "styles": ["apps/website/website/src/generated/styles/tailwind.dev.css"],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "styles": ["apps/website/website/src/generated/styles/tailwind.css"],
-              "fileReplacements": [
-                {
-                  "replace": "apps/website/website/src/environments/environment.ts",
-                  "with": "apps/website/website/src/environments/environment.prod.ts"
-                }
-              ],
-              "optimization": true,
-              "outputHashing": "all",
-              "sourceMap": false,
-              "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "0kb"
-                }
-              ]
-            }
-          }
-        },
-        "serve": {
-          "executor": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "website/website:build"
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "website/website:build:production"
-            }
-          }
-        },
-        "tailwindcss": {
-          "executor": "@mw-angular/tailwindcss-builder:general",
-          "options": {
-            "themes": [
-              {
-                "configFile": "libs/frontend/design-system/src/styles/tailwind.config.js",
-                "cssFile": "libs/frontend/design-system/src/styles/tailwind.css",
-                "outputPath": "apps/website/website/src/generated/styles",
-                "outputFileName": "tailwind"
-              }
-            ]
-          }
-        },
-        "extract-i18n": {
-          "executor": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "website/website:build"
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/website/website/src/**/*.ts", "apps/website/website/src/**/*.html"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/website/website"],
-          "options": {
-            "jestConfig": "apps/website/website/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "website/website-e2e": {
-      "root": "apps/website/website-e2e",
-      "sourceRoot": "apps/website/website-e2e/src",
-      "projectType": "application",
-      "targets": {
-        "e2e": {
-          "executor": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/website/website-e2e/cypress.json",
-            "tsConfig": "apps/website/website-e2e/tsconfig.e2e.json",
-            "devServerTarget": "website/website:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "website/website:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/website/website-e2e/**/*.{js,ts}"]
-          }
-        }
-      }
-    },
     "styleguide/styleguide": {
       "projectType": "application",
       "root": "apps/styleguide/styleguide",
@@ -205,8 +75,8 @@
           "options": {
             "themes": [
               {
-                "configFile": "libs/frontend/design-system/src/styles/tailwind.config.js",
-                "cssFile": "libs/frontend/design-system/src/styles/tailwind.css",
+                "configFile": "libs/frontend/design-system/src/styles/tailwind/tailwind.config.js",
+                "cssFile": "libs/frontend/design-system/src/styles/tailwind/tailwind.css",
                 "outputPath": "apps/styleguide/styleguide/src/generated/styles",
                 "outputFileName": "tailwind"
               }

@@ -1,6 +1,11 @@
 # Add files here to ignore them from prettier formatting
 
-/dist
-/coverage
-
+.idea
+.git
+node_modules
+dist
 generated
+coverage
+.cache
+.npm
+npm-cache

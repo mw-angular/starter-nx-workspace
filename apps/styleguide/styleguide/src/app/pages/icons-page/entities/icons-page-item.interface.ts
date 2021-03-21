@@ -1,7 +1,7 @@
-import { DsIconCategoryType, DsIconNameType } from '@starter-nx-workspace/frontend/design-system';
+import { DsIconCategory, DsIconName } from '@starter-nx-workspace/frontend/design-system';
 
 export interface IconsPageItemInterface {
-  name: DsIconNameType;
-  category: DsIconCategoryType;
+  name: DsIconName;
+  category: DsIconCategory;
   color: 'bravo' | 'charlie';
 }

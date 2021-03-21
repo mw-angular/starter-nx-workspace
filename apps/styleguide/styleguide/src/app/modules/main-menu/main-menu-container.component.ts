@@ -4,7 +4,7 @@ import { MainMenuItemInterface } from './entities/main-menu-item.interface';
 @Component({
   selector: 'app-main-menu-container',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  template: ` <app-main-menu [items]="items"></app-main-menu> `,
+  template: `<app-main-menu [items]="items"></app-main-menu>`,
 })
 export class MainMenuContainerComponent {
   items: MainMenuItemInterface[] = [
